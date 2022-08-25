@@ -48,7 +48,7 @@ pub async fn index_page(req: HttpRequest, session: Session) -> actix_web::Result
                 struct Template {
                     request_user:  User,
                     title:         String,
-                    is_ajax:       bool,
+                    is_ajax:       i32,
                 }
                 let body = Template {
                     request_user:  _request_user,
@@ -65,7 +65,7 @@ pub async fn index_page(req: HttpRequest, session: Session) -> actix_web::Result
                 struct Template {
                     request_user:  User,
                     title:         String,
-                    is_ajax:       bool,
+                    is_ajax:       i32,
                 }
                 let body = Template {
                     request_user:  _request_user,
@@ -82,17 +82,12 @@ pub async fn index_page(req: HttpRequest, session: Session) -> actix_web::Result
                 #[derive(TemplateOnce)]
                 #[template(path = "desctop/main/login.stpl")]
                 struct Template {
-                    last_works:    Vec<Work>,
-                    last_services: Vec<Service>,
-                    last_wikis:    Vec<Wiki>,
-                    last_blogs:    Vec<Blog>,
-                    last_stores:   Vec<Store>,
-                    is_ajax:       i32,
-                    title:         String,
+                    is_ajax: i32,
+                    title:   String,
                 }
                 let body = Template {
-                    is_ajax:       is_ajax,
-                    title:         "Вход".to_string(),
+                    is_ajax: is_ajax,
+                    title:   "Вход".to_string(),
                 }
                 .render_once()
                 .map_err(|e| InternalError::new(e, StatusCode::INTERNAL_SERVER_ERROR))?;
@@ -102,20 +97,10 @@ pub async fn index_page(req: HttpRequest, session: Session) -> actix_web::Result
                 #[derive(TemplateOnce)]
                 #[template(path = "mobile/main/login.stpl")]
                 struct Template {
-                    last_works:    Vec<Work>,
-                    last_services: Vec<Service>,
-                    last_wikis:    Vec<Wiki>,
-                    last_blogs:    Vec<Blog>,
-                    last_stores:   Vec<Store>,
-                    is_ajax:       i32,
-                    title:         String,
+                    is_ajax: i32,
+                    title:   String,
                 }
                 let body = Template {
-                    last_works:    _last_works,
-                    last_services: _last_services,
-                    last_wikis:    _last_wikis,
-                    last_blogs:    _last_blogs,
-                    last_stores:   _last_stores,
                     is_ajax:       is_ajax,
                     title:         "Вход".to_string(),
                 }
