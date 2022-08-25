@@ -20,7 +20,6 @@ mod utils;
 #[macro_use]
 mod views;
 
-
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
     use actix_redis::RedisSession;
