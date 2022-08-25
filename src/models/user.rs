@@ -37,3 +37,9 @@ impl User {
             .expect("E");
     }
 }
+
+#[derive(Debug, Serialize, Deserialize)]
+pub struct SessionUser {
+    pub id:    i32,
+    pub phone: String,
+}
