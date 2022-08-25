@@ -4,6 +4,7 @@ use diesel::result::{DatabaseErrorKind, Error as DBError};
 use std::convert::From;
 
 
+
 #[derive(Clone, Debug, Display)]
 pub enum AuthError {
     #[display(fmt = "DuplicateValue: {}", _0)]
